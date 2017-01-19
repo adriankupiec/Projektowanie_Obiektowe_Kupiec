@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
+    <title>Ecommerce</title>
+    {% include 'index/styles.html' %}
+  </head>
+  <body class="Site">
+  <header>
+    {% include 'index/nav.html' %}
+  </header>
+    <main class="Site-content">
+    <div class="section no-pad-bot" id="index-banner">
+      {% if messages %}
+      <ul class="container messages">
+          {% for message in messages %}
+          <li{% if message.tags %} class="{{ message.tags }} center-align gray lighten-5 z-depth-1"{% endif %}>{{ message }}</li>
+          {% endfor %}
+      </ul>
+      {% endif %}
+
+      <div class="container">
+        {% block content %}
+        {% include 'index/content.html' %}
+        {% endblock %}
+      </div>
+    </div>
+
+    {% include 'index/scripts.html' %}
+    {% include 'index/blackmagic.html' %}
+    </main>
+
+  </body>
+</html>

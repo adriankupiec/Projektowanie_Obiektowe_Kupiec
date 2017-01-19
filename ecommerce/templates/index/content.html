@@ -1,0 +1,9 @@
+<br><br>
+<h1 class="header center deep-orange-text">E-commerce</h1>
+<div class="row center">
+  <h5 class="header col s12 light">Witaj na stronie naszego Sklepu Internetowego :)</h5>
+  {% if user.is_authenticated %}
+    <p>Miło Cię widzieć {{ user|capfirst }}.</p>
+  {% endif %}
+</div>
+<br><br>

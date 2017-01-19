@@ -1,0 +1,32 @@
+{% load cart_extras %}
+{% load product_category_extras %}
+<nav class=" indigo darken-2" role="navigation">
+  <div class="nav-wrapper container">
+    {% product_categories as categories %}
+
+    <ul class="left valign-wrapper">
+      <a id="logo-container" href="/" class="center brand-logo"><h4><b>BOOK</b>shop</h4></a>
+      <li><a href="/product_categories">Kategorie</a></li>
+      <li><a  href="/products">Książki</a></li>
+    </ul>
+
+    <ul class="right hide-on-med-and-down">
+      {% if user.is_authenticated %}
+        <li><a style="color: gold;" id="card" href="/cart">Koszyk: <span id="cart-price">{{ user.id| cart_price }}</span> (<span id="cart-items">{{ user.id|cart_items }}</span>)</a></li>
+        <li><a id="logout" href="/accounts/logout">Wyloguj</a></li>
+      {% else %}
+        <li><a id="login" href="/login">Zaloguj</a></li>
+      {% endif %}
+    </ul>
+
+    <ul id="nav-mobile" class="side-nav" style="transform: translateX(-100%);">
+      {% if user.is_authenticated %}
+        <li><a id="card" href="/cart">Koszyk: <span id="cart-price">{{ user.id| cart_price }}</span> (<span id="cart-items">{{ user.id|cart_items }}</span>)</a></li>
+        <li><a id="logout" href="/accounts/logout">Wyloguj</a></li>
+      {% else %}
+        <li><a id="login" href="/login">Zaloguj</a></li>
+      {% endif %}
+    </ul>
+    <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+  </div>
+</nav>

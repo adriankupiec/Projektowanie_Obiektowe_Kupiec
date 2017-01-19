@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<div class="navbar navbar-collapse collapse">
+  <div class="navbar-form navbar-right">
+  <div class="row center">
+    {% if user.is_authenticated %}
+      <a id="logout" href="/accounts/logout" class="btn btn-success">Wyloguj</a>
+    {% else %}
+        <h2 class="header center deep-orange-text">Logowanie</h2>
+        <br>
+      <a id="google_login" href="/accounts/google/login/" class="btn btn-success">
+        Zaloguj przez Google
+      </a>
+      <a id="facebook_login" href="/accounts/facebook/login" class="btn btn-success">
+        Zaloguj przez Facebook
+      </a>
+    {% endif %}
+  </div>
+  </div>
+</div>
+{% endblock %}
+
